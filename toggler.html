@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb On Off</title>
+    <style>
+       
+body {
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>Bulb Toggler</h1>
+    <img src="off blub.png" alt="off" id="bulb">
+    <br> <br>
+    <button type="button" onclick="toggleBulb()">
+        Toggle
+    </button>
+
+    <script>
+        const bulbElement = document.getElementById('bulb');
+        let state = false;
+
+        function toggleBulb() 
+        {
+            if(state==false)   
+            {
+                bulbElement.src = 'on blub.png';
+                state = true;
+            }  
+            else
+            {
+                bulbElement.src = 'off blub.png';
+                state = false;
+            }
+        }
+    </script>
+</body>
+</html>
