@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bulb Toggler</title>
     <style>
-        .app-title {
+        body {
             text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
         }
         .img-bulb {
-            height: 150px;
-            display: block;
-            margin: 10px auto;
+            width: 150px;
+            height: auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
         }
         .btn-container {
             display: flex;
@@ -53,27 +70,31 @@
 </head>
 <body class="bg-light" id="main-body">
     <h1 class="app-title">Bulb Toggler</h1>
-
     <div class="theme-selector-container">
         <img src="on blub.png" class="theme-select-icon" onclick="enableLight()">
-        <img src="off blub.png" class="theme-select-icon" onclick="enableDark()"/>
+        <img src="off blub.png" class="theme-select-icon" onclick="enableDark()">
     </div>
-    <img src="off blub.png" class="img-bulb" id="img-bulb"/>
-    
+    <img src="off blub.png" class="img-bulb" id="bulb">
+    <br><br>
     <div class="btn-container">
         <button type="button" class="btn-toggle btn-light" onclick="toggleBulb()" id="btn-toggle">
             Toggle
         </button>
     </div>
     <script>
-     function toggleBulb() {
-        const bulbElement = document.getElementById("img-bulb");
-        if (bulbElement.src.includes("off blub.png")) {
-            bulbElement.src = "on blub.png";
-        } else {
-            bulbElement.src = "off blub.png";
+        const bulbElement = document.getElementById('bulb');
+        let state = false;
+
+        function toggleBulb() {
+            if(state == false) {
+                bulbElement.src = 'on blub.png';
+                state = true;
+            } else {
+                bulbElement.src = 'off blub.png';
+                state = false;
+            }
         }
-    }
+
         function enableDark() {
             const mainBody = document.getElementById("main-body");
             mainBody.classList.remove("bg-light");
